@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript W3Schools Examples</title>
+</head>
+<body>
+
+    <h1>Belajar JavaScript Dasar</h1>
+
+    <!-- Output: Menampilkan teks di halaman HTML -->
+    <p id="output">Output akan muncul di sini</p>
+
+    <!-- Event: Tombol yang memicu fungsi JavaScript -->
+    <button onclick="showMessage()">Klik Saya</button>
+
+    <script>
+        // 1. Variables (var, let, const)
+        var name = "Budi"; // var
+        let age = 25; // let
+        const pi = 3.14; // const (tidak bisa diubah)
+
+        // 2. Output: Menampilkan di HTML menggunakan DOM
+        document.getElementById("output").innerHTML = "Halo, " + name + "! Umurmu " + age + " tahun.";
+
+        // 3. Functions: Fungsi sederhana
+        function showMessage() {
+            alert("Halo, " + name + "! Ini adalah event klik.");
+        }
+
+        // 4. Operators: Aritmatika sederhana
+        let x = 10;
+        let y = 5;
+        let sum = x + y; // Penjumlahan
+        console.log("Penjumlahan x + y = " + sum);
+
+        // 5. Conditions: Menggunakan if-else
+        if (age >= 18) {
+            console.log("Anda dewasa.");
+        } else {
+            console.log("Anda belum dewasa.");
+        }
+
+        // 6. Loops: Looping menggunakan for
+        let numbers = [1, 2, 3, 4, 5];
+        for (let i = 0; i < numbers.length; i++) {
+            console.log("Angka: " + numbers[i]);
+        }
+
+        // 7. Arrays: Mengakses array dan metode array
+        let fruits = ["apel", "pisang", "mangga"];
+        fruits.push("jeruk"); // Menambah item ke array
+        console.log("Buah: " + fruits);
+
+        // 8. Objects: Membuat objek dan mengakses property
+        let person = {
+            firstName: "John",
+            lastName: "Doe",
+            age: 30
+        };
+        console.log("Nama lengkap: " + person.firstName + " " + person.lastName);
+
+        // 9. Strings: Manipulasi string
+        let greeting = "Selamat Datang";
+        console.log("Panjang string: " + greeting.length); // Panjang string
+
+        // 10. DOM Manipulation: Mengubah konten HTML dengan DOM
+        document.getElementById("output").style.color = "blue";
+
+        // 11. JSON: Data JSON dan parsing
+        let jsonData = '{"name": "Budi", "age": 25}';
+        let jsonObject = JSON.parse(jsonData); // Mengubah JSON string menjadi objek JavaScript
+        console.log("Nama dari JSON: " + jsonObject.name);
+
+        // 12. ES6 Features: Menggunakan arrow function dan template literals
+        const multiply = (a, b) => a * b;
+        console.log(`Hasil perkalian: ${multiply(3, 4)}`);
+
+        // 13. Switch statement
+        let day = 3;
+        switch (day) {
+            case 1:
+                console.log("Hari ini Senin");
+                break;
+            case 2:
+                console.log("Hari ini Selasa");
+                break;
+            case 3:
+                console.log("Hari ini Rabu");
+                break;
+            default:
+                console.log("Hari tidak diketahui");
+        }
+
+        // 14. Math object
+        let num = 16;
+        console.log("Akar kuadrat dari " + num + " adalah " + Math.sqrt(num));
+
+        // 15. Error Handling
+        try {
+            let result = undefinedVariable; // Variabel yang belum didefinisikan
+        } catch (error) {
+            console.log("Error tertangkap: " + error.message);
+        }
+
+        // 16. setTimeout: Menunda eksekusi selama 2 detik
+        setTimeout(function() {
+            console.log("Ini muncul setelah 2 detik");
+        }, 2000);
+
+        // 17. setInterval: Menjalankan kode setiap 1 detik
+        let counter = 0;
+        let intervalId = setInterval(function() {
+            counter++;
+            console.log("Interval ke-" + counter);
+            if (counter === 5) clearInterval(intervalId); // Menghentikan interval setelah 5 kali
+        }, 1000);
+
+        // 18. Array methods: map, filter, reduce
+        let arr = [1, 2, 3, 4];
+        let doubled = arr.map(num => num * 2);
+        console.log("Array setelah map: " + doubled);
+
+        let evenNumbers = arr.filter(num => num % 2 === 0);
+        console.log("Array filter (genap): " + evenNumbers);
+
+        let total = arr.reduce((acc, num) => acc + num, 0);
+        console.log("Total array setelah reduce: " + total);
+
+        // 19. Fetch API: Mengambil data dari API eksternal
+        // Uncomment jika ingin mencoba di lingkungan yang mendukung
+        // fetch('https://jsonplaceholder.typicode.com/posts')
+        //     .then(response => response.json())
+        //     .then(data => console.log(data))
+        //     .catch(error => console.error('Error:', error));
+
+        // 20. Geolocation API: Mendapatkan lokasi pengguna
+        // navigator.geolocation.getCurrentPosition(function(position) {
+        //     console.log("Latitude: " + position.coords.latitude);
+        //     console.log("Longitude: " + position.coords.longitude);
+        // });
+
+        // 21. Ternary Operator
+        let isAdult = (age >= 18) ? "Dewasa" : "Anak-anak";
+        console.log("Status usia: " + isAdult);
+
+        // 22. Callback Function
+        function greetingCallback(name, callback) {
+            console.log("Hai " + name);
+            callback();
+        }
+        greetingCallback("Budi", function() {
+            console.log("Ini adalah callback.");
+        });
+
+        // 23. Promise
+        let promiseExample = new Promise(function(resolve, reject) {
+            let success = true; // ubah ke false untuk melihat reject
+            if (success) {
+                resolve("Berhasil!");
+            } else {
+                reject("Gagal!");
+            }
+        });
+
+        promiseExample.then(function(message) {
+            console.log(message);
+        }).catch(function(error) {
+            console.log(error);
+        });
+
+        // 24. Async/Await
+        async function fetchData() {
+            let response = await fetch('https://jsonplaceholder.typicode.com/posts');
+            let data = await response.json();
+            console.log(data);
+        }
+        // fetchData(); // Uncomment untuk menjalankan di lingkungan yang mendukung fetch
+
+        // 25. Spread Operator
+        let originalArray = [1, 2, 3];
+        let newArray = [...originalArray, 4, 5];
+        console.log("Array baru: " + newArray);
+
+        // 26. Rest Parameters
+        function sumAll(...numbers) {
+            return numbers.reduce((acc, num) => acc + num, 0);
+        }
+        console.log("Jumlah semua angka: " + sumAll(1, 2, 3, 4, 5));
+
+        // 27. String Template Literals
+        let firstName = "John";
+        let lastName = "Doe";
+        let fullName = `${firstName} ${lastName}`;
+        console.log("Nama lengkap: " + fullName);
+
+        // 28. Array Destructuring
+        let [firstFruit, secondFruit] = fruits;
+        console.log("Buah pertama: " + firstFruit + ", buah kedua: " + secondFruit);
+
+        // 29. Object Destructuring
+        let {firstName: fn, lastName: ln} = person;
+        console.log("Nama pendek: " + fn + " " + ln);
+
+        // 30. Class in JavaScript
+        class Car {
+            constructor(brand, model) {
+                this.brand = brand;
+                this.model = model;
+            }
+            display() {
+                console.log(`Mobil: ${this.brand} ${this.model}`);
+            }
+        }
+
+        let myCar = new Car("Toyota", "Corolla");
+        myCar.display();
+
+        // 31. Constructor Function
+        function User(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+        let user = new User("Alice", 30);
+        console.log("Pengguna: " + user.name + ", Umur: " + user.age);
+
+        // 32. Inheritance (Pewarisan)
+        class Animal {
+            constructor(name) {
+                this.name = name;
+            }
+            speak() {
+                console.log(`${this.name} membuat suara.`);
+            }
+        }
+
+        class Dog extends Animal {
+            speak() {
+                console.log(`${this.name} menggonggong.`);
+            }
+        }
+
+        let myDog = new Dog("Rex");
+        myDog.speak();
+
+        // 33. Getter dan Setter
+        class Person {
+            constructor(firstName, lastName) {
+                this.firstName = firstName;
+                this.lastName = lastName;
+            }
+
+            get fullName() {
+                return `${this.firstName} ${this.lastName}`;
+            }
+
+            set fullName(name) {
+                let parts = name.split(' ');
+                this.firstName = parts[0];
+                this.lastName = parts[1];
+            }
+        }
+
+        let individual = new Person("John", "Doe");
+        console.log("Nama lengkap: " + individual.fullName);
+        individual.fullName = "Jane Smith";
+        console.log("Nama baru: " + individual.fullName);
+
+        // 34. Hoisting
+        console.log(hoistedVar); // Undefined karena hoisting
+        var hoistedVar = 5;
+
+        // 35. Strict Mode
+        "use strict";
+        // x = 3.14; // Error karena 'x' tidak dideklarasikan
+
+        // 36. Closures
+        function outer() {
+            let outerVar = "Saya dari luar!";
+            function inner() {
+                console.log(outerVar); // Mengakses variabel luar
+            }
+            return inner;
+        }
+
+        let innerFunc = outer();
+        innerFunc();
+
+        // 37. Regular Expressions (RegEx)
+        let re = /d+/; // Mencari satu atau lebih digit
+        let testString = "123abc";
+        console.log("Hasil RegEx: " + re.test(testString)); // True
+
+        // 38. Default Parameters
+        function greet(name = "Pengguna") {
+            console.log("Selamat datang, " + name);
+        }
+        greet(); // Menggunakan nilai default
+
+        // 39. Static Methods
+        class MathUtils {
+            static add(a, b) {
+                return a + b;
+            }
+        }
+        console.log("Penjumlahan static: " + MathUtils.add(3, 4));
+
+        // 40. Symbol
+        let sym = Symbol("unique");
+        console.log("Symbol: " + sym.toString());
+
+        // 41. Iterators & Generators
+        function* numberGenerator() {
+            yield 1;
+            yield 2;
+            yield 3;
+        }
+
+        let gen = numberGenerator();
+        console.log(gen.next().value); // 1
+        console.log(gen.next().value); // 2
+        console.log(gen.next().value); // 3
+
+        // 42. Map
+        let map = new Map();
+        map.set("key1", "value1");
+        map.set("key2", "value2");
+        console.log("Map key1: " + map.get("key1"));
+
+        // 43. Set
+        let set = new Set([1, 2, 3, 3]);
+        console.log("Set: " + [...set]);
+
+        // 44. WeakMap
+        let weakMap = new WeakMap();
+        let obj = {};
+        weakMap.set(obj, "Weak value");
+        console.log("WeakMap: " + weakMap.get(obj));
+
+        // 45. WeakSet
+        let weakSet = new WeakSet();
+        let obj2 = {};
+        weakSet.add(obj2);
+        console.log("WeakSet contains obj2: " + weakSet.has(obj2));
+
+        // 46. Modules (import/export)
+        // Import dan export hanya bisa dicoba di lingkungan modul
+
+        // 47. This Keyword
+        let objThis = {
+            name: "Budi",
+            showThis: function() {
+                console.log(this.name);
+            }
+        };
+        objThis.showThis();
+
+        // 48. Call, Apply, Bind
+        let objCallApplyBind = { name: "John" };
+        function introduce(place) {
+            console.log(`Hai, saya ${this.name} dari ${place}`);
+        }
+        introduce.call(objCallApplyBind, "Jakarta"); // Call
+        introduce.apply(objCallApplyBind, ["Bandung"]); // Apply
+        let boundIntroduce = introduce.bind(objCallApplyBind);
+        boundIntroduce("Surabaya");
+
+        // 49. Object.freeze
+        let objFreeze = { name: "Frozen" };
+        Object.freeze(objFreeze);
+        // objFreeze.name = "Changed"; // Tidak bisa diubah karena frozen
+
+        // 50. Object.seal
+        let objSeal = { name: "Sealed" };
+        Object.seal(objSeal);
+        objSeal.name = "Changed"; // Bisa diubah
+        // delete objSeal.name; // Tidak bisa dihapus karena sealed
+
+        // 51. Prototypes
+        function AnimalType(type) {
+            this.type = type;
+        }
+        AnimalType.prototype.speak = function() {
+            console.log(`${this.type} berbicara`);
+        };
+        let cat = new AnimalType("Kucing");
+        cat.speak();
+
+        // 52. Object.assign
+        let objA = { a: 1 };
+        let objB = { b: 2 };
+        let merged = Object.assign({}, objA, objB);
+        console.log("Merged object: ", merged);
+
+        // 53. Object.entries
+        let objEntries = { name: "John", age: 25 };
+        console.log("Object entries: ", Object.entries(objEntries));
+
+        // 54. Object.values
+        console.log("Object values: ", Object.values(objEntries));
+
+        // 55. Object.keys
+        console.log("Object keys: ", Object.keys(objEntries));
+
+        // 56. forEach
+        let items = ["item1", "item2", "item3"];
+        items.forEach(function(item) {
+            console.log(item);
+        });
+
+        // 57. map (array method)
+        let squared = items.map(item => item + " squared");
+        console.log("Items after map: ", squared);
+
+        // 58. filter (array method)
+        let filteredItems = items.filter(item => item === "item2");
+        console.log("Filtered items: ", filteredItems);
+
+        // 59. reduce (array method)
+        let reduceItems = items.reduce((acc, item) => acc + " " + item, "");
+        console.log("Items after reduce: ", reduceItems);
+
+        // 60. includes (array method)
+        let includesItem = items.includes("item1");
+        console.log("Includes item1: ", includesItem);
+
+        // 61. find (array method)
+        let findItem = items.find(item => item === "item2");
+        console.log("Found item: ", findItem);
+
+    </script>
+
+</body>
+</html>
